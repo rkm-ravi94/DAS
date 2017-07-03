@@ -1,0 +1,16 @@
+nestedView('Ansible-Jobs') {
+    views {
+      listView('{{LABEL}}') {
+           jobs {
+                names('ADD-Deploy-Tomcat-dsl', 'ADD-Deploy-Nginx-dsl', 'ADD-Deploy-Mysql-dsl')
+            }
+            columns {
+                status()
+                weather()
+                name()
+                lastSuccess()
+                lastFailure()
+            }
+        }
+    }
+}

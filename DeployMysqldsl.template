@@ -1,0 +1,49 @@
+job('ADD-Deploy-Mysql-dsl') {
+        parameters {
+     	extendedChoiceParameterDefinition {
+          name('Deployment_Group' )
+          type('Single Select' )
+          propertyFile('/var/lib/jenkins/inventory.Properties')
+          propertyKey('key')
+          defaultValue('targets')
+          defaultPropertyFile('')
+          value('')
+          defaultPropertyKey('') 
+          quoteValue(false)
+          visibleItemCount(5) 
+       	  description('')
+          multiSelectDelimiter('')
+          bindFieldName('')
+          svnPath(false)
+          svnUrl('')
+          svnUserName('')
+          svnPassword('')
+          projectName('')
+          roleBasedFilter(false)
+        }
+        }
+    label('{{LABEL}}')
+scm {
+     git {
+        remote {
+            
+            url('https://github.com/opstree-ansible/mysql-server.git')
+        }
+        branch('*/master')
+        extensions {
+            relativeTargetDirectory("""/etc/ansible/roles/mysql-server/""")
+        }
+    }
+}
+  steps {
+    shell(
+
+    '#!/bin/bash\n'  +
+    
+    'echo "Run Ansible playbook"\n'  +
+    
+    'ansible-playbook /etc/ansible/roles/mysql-server/site.yml --extra-var "host=${Deployment_Group}"\n'
+
+    )
+}
+}

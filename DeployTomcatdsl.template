@@ -1,0 +1,49 @@
+	job('ADD-Deploy-Tomcat-dsl') {
+        parameters {
+     	extendedChoiceParameterDefinition {
+          name('Deployment_Group' )
+          type('Single Select' )
+          propertyFile('/var/lib/jenkins/inventory.Properties')
+          propertyKey('key')
+          defaultValue('aa')
+          defaultPropertyFile('')
+          value('')
+          defaultPropertyKey('') 
+          quoteValue(false)
+          visibleItemCount(5) 
+       	  description('')
+          multiSelectDelimiter('')
+          bindFieldName('')
+          svnPath(false)
+          svnUrl('')
+          svnUserName('')
+          svnPassword('')
+          projectName('')
+          roleBasedFilter(false)
+        }
+        }
+    label('{{LABEL}}')
+scm {
+     git {
+        remote {
+            
+            url('https://github.com/opstree-ansible/tomcat7.git')
+        }
+        branch('*/master')
+        extensions {
+            relativeTargetDirectory("""/etc/ansible/roles/tomcat7/""")
+        }
+    }
+}
+  steps {
+    shell(
+
+    '#!/bin/bash\n'  +
+    'echo "Clone java role"\n'  +
+    'git clone https://github.com/opstree-ansible/java.git /etc/ansible/roles/java\n'  +
+    'echo "Run Ansible playbook"\n'  +
+    'ansible-playbook /etc/ansible/roles/tomcat7/site.yml --extra-var "host=${Deployment_Group}"\n'
+
+    )
+}
+}
