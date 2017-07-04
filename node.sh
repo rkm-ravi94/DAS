@@ -1,28 +1,28 @@
 #!/bin/bash
 
-JENKINS_URL=$1
-NODE_NAME=$2
+source /var/lib/jenkins/properties/jenkins.properties
+
+JENKINS_URL=${JENKINS_URL}
+NODE_NAME=$1
 NODE_SLAVE_HOME='/home/jenkins'
 EXECUTORS=1
 SSH_PORT=22
-CRED_ID=$3
-RANDOMENO=`shuf -i 1-99 -n 1`
-#LABELS=slave-${RANDOMENO}
+CRED_ID=${CRED_ID}
 USERID=${USER}
-jenkins_username=$4
-jenkins_password=$5
-remote_machine_username=$6
-LABELS=$7
+jenkins_username=${USERNAME}
+jenkins_password=${PASSWORD}
+remote_machine_username=root
+LABELS=$2
 
 ssh -o StrictHostKeyChecking=no ${remote_machine_username}@${NODE_NAME} "mkdir -p ${NODE_SLAVE_HOME}"
 scp -o StrictHostKeyChecking=no /var/lib/jenkins/jdk-8u131-linux-x64.rpm ${remote_machine_username}@${NODE_NAME}:${NODE_SLAVE_HOME}/.
-ssh -o StrictHostKeyChecking=no ${remote_machine_username}@${NODE_NAME} "sudo yum install epel-release"
-ssh -o StrictHostKeyChecking=no ${remote_machine_username}@${NODE_NAME} "sudo yum install ansible"
-ssh -o StrictHostKeyChecking=no ${remote_machine_username}@${NODE_NAME} "sudo yum install git"
-scp -o StrictHostKeyChecking=no /var/lib/jenkins/hosts ${remote_machine_username}@${NODE_NAME}:/etc/ansible/hosts/.
-ssh -o StrictHostKeyChecking=no ${remote_machine_username}@${NODE_NAME} "sudo yum -y install ${NODE_SLAVE_HOME}/jdk-8u131-linux-x64.rpm"
+ssh -o StrictHostKeyChecking=no ${remote_machine_username}@${NODE_NAME} "yum -y install epel-release"
+ssh -o StrictHostKeyChecking=no ${remote_machine_username}@${NODE_NAME} "yum -y install ansible"
+ssh -o StrictHostKeyChecking=no ${remote_machine_username}@${NODE_NAME} "sudo -y yum install git"
+scp -o StrictHostKeyChecking=no /var/lib/jenkins/inventory/hosts ${remote_machine_username}@${NODE_NAME}:/etc/ansible/.
+ssh -o StrictHostKeyChecking=no ${remote_machine_username}@${NODE_NAME} "yum -y install ${NODE_SLAVE_HOME}/jdk-8u131-linux-x64.rpm"
 
-cat <<EOF | java -jar ~/jenkins-cli.jar -s $1 create-node $2 --username "$4" --password "$5"
+cat <<EOF | java -jar ~/jenkins-cli.jar -s ${JENKINS_URL} create-node ${NODE_NAME} --username "${jenkins_username}" --password "${jenkins_password}"
 <slave>
   <name>${NODE_NAME}</name>
   <description></description>
