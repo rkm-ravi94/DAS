@@ -14,13 +14,13 @@ jenkins_password=${PASSWORD}
 remote_machine_username=root
 LABELS=$2
 
-ssh -o StrictHostKeyChecking=no ${remote_machine_username}@${NODE_NAME} "mkdir -p ${NODE_SLAVE_HOME}"
-scp -o StrictHostKeyChecking=no /var/lib/jenkins/jdk-8u131-linux-x64.rpm ${remote_machine_username}@${NODE_NAME}:${NODE_SLAVE_HOME}/.
-ssh -o StrictHostKeyChecking=no ${remote_machine_username}@${NODE_NAME} "yum -y install epel-release"
-ssh -o StrictHostKeyChecking=no ${remote_machine_username}@${NODE_NAME} "yum -y install ansible"
-ssh -o StrictHostKeyChecking=no ${remote_machine_username}@${NODE_NAME} "sudo -y yum install git"
-scp -o StrictHostKeyChecking=no /var/lib/jenkins/inventory/hosts ${remote_machine_username}@${NODE_NAME}:/etc/ansible/.
-ssh -o StrictHostKeyChecking=no ${remote_machine_username}@${NODE_NAME} "yum -y install ${NODE_SLAVE_HOME}/jdk-8u131-linux-x64.rpm"
+ssh -o StrictHostKeyChecking=no -t ${remote_machine_username}@${NODE_NAME} "mkdir -p ${NODE_SLAVE_HOME}"
+scp -o StrictHostKeyChecking=no -t /var/lib/jenkins/jdk-8u131-linux-x64.rpm ${remote_machine_username}@${NODE_NAME}:${NODE_SLAVE_HOME}/.
+ssh -o StrictHostKeyChecking=no -t ${remote_machine_username}@${NODE_NAME} "yum -y install epel-release"
+ssh -o StrictHostKeyChecking=no -t ${remote_machine_username}@${NODE_NAME} "yum -y install ansible"
+ssh -o StrictHostKeyChecking=no -t ${remote_machine_username}@${NODE_NAME} "yum install git"
+scp -o StrictHostKeyChecking=no -t /var/lib/jenkins/inventory/hosts ${remote_machine_username}@${NODE_NAME}:/etc/ansible/.
+ssh -o StrictHostKeyChecking=no -t ${remote_machine_username}@${NODE_NAME} "yum -y install ${NODE_SLAVE_HOME}/jdk-8u131-linux-x64.rpm"
 
 cat <<EOF | java -jar ~/jenkins-cli.jar -s ${JENKINS_URL} create-node ${NODE_NAME} --username "${jenkins_username}" --password "${jenkins_password}"
 <slave>
