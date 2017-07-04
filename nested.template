@@ -2,7 +2,7 @@ nestedView('Projection') {
     views {
       listView('{{LABEL}}') {
            jobs {
-                names('Configure-{{LABEL}}-Tomcat-Job', 'Configure-{{LABEL}}-Nginx-Job', 'Configurei-{{LABEL}}-Mysql-Job', 'Configure-{{LABEL}}-Zabbix-Job')
+                names('Configure-{{LABEL}}-Tomcat-Job', 'Configure-{{LABEL}}-Nginx-Job', 'Configure-{{LABEL}}-Mysql-Job', 'Configure-{{LABEL}}-Zabbix-Job')
             }
             columns {
                 status()
