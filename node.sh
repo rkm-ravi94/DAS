@@ -19,7 +19,7 @@ scp -o StrictHostKeyChecking=no /var/lib/jenkins/jdk-8u131-linux-x64.rpm ${remot
 ssh -o StrictHostKeyChecking=no ${remote_machine_username}@${NODE_NAME} "sudo yum install epel-release"
 ssh -o StrictHostKeyChecking=no ${remote_machine_username}@${NODE_NAME} "sudo yum install ansible"
 ssh -o StrictHostKeyChecking=no ${remote_machine_username}@${NODE_NAME} "sudo yum install git"
-scp -o StrictHostKeyChecking=no /var/lib/jenkins/hosts ${remote_machine_username}@${NODE_NAME}:/etc/ansible/hosts/.
+scp -o StrictHostKeyChecking=no /var/lib/jenkins/hosts ${remote_machine_username}@${NODE_NAME}:/etc/ansible/.
 ssh -o StrictHostKeyChecking=no ${remote_machine_username}@${NODE_NAME} "sudo yum -y install ${NODE_SLAVE_HOME}/jdk-8u131-linux-x64.rpm"
 
 cat <<EOF | java -jar ~/jenkins-cli.jar -s $1 create-node $2 --username "$4" --password "$5"
