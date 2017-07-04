@@ -9,11 +9,11 @@ job('Add-Node') {
 
         '#!/bin/bash\n'  +
         'rm -rf ${WORKSPACE}/*.groovy\n' +
-		'cp ${JENKINS_HOME}/scripts/DeployNginxdsl.template ${WORKSPACE}/DeployNginxdsl.groovy\n' +
-		'cp ${JENKINS_HOME}/scripts/DeployTomcatdsl.template ${WORKSPACE}/DeployTomcatdsl.groovy\n' +
-		'cp ${JENKINS_HOME}/scripts/DeployMysqldsl.template ${WORKSPACE}/DeployMysqldsl.groovy\n' +
-		'cp ${JENKINS_HOME}/scripts/nested.template ${WORKSPACE}/nested.groovy\n' +
-		'cp ${JENKINS_HOME}/scripts/Deployzabbixdsl.template ${WORKSPACE}/Deployzabbixdsl.groovy\n' +
+		'cp ${JENKINS_HOME}/template/DeployNginxdsl.template ${WORKSPACE}/DeployNginxdsl.groovy\n' +
+		'cp ${JENKINS_HOME}/template/DeployTomcatdsl.template ${WORKSPACE}/DeployTomcatdsl.groovy\n' +
+		'cp ${JENKINS_HOME}/template/DeployMysqldsl.template ${WORKSPACE}/DeployMysqldsl.groovy\n' +
+		'cp ${JENKINS_HOME}/template/nested.template ${WORKSPACE}/nested.groovy\n' +
+		'cp ${JENKINS_HOME}/template/Deployzabbixdsl.template ${WORKSPACE}/Deployzabbixdsl.groovy\n' +
 		'sed -i "s/{{LABEL}}/${LABEL}/g" DeployNginxdsl.groovy\n' +
 		'sed -i "s/{{LABEL}}/${LABEL}/g" DeployTomcatdsl.groovy\n' +
 		'sed -i "s/{{LABEL}}/${LABEL}/g" DeployMysqldsl.groovy\n' +
