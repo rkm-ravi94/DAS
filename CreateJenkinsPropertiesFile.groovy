@@ -1,6 +1,6 @@
 job('Create-Jenkins-Properties-File') {
     parameters {
-        stringParam('JENKINS_URL')
+        stringParam('IP')
         stringParam('USERNAME')
 	stringParam('PASSWORD')
 	stringParam('CRED_ID')
