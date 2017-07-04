@@ -1,4 +1,4 @@
-job('ADD-Deploy-Zabbix-dsl') {
+job('Configure-Zabbix-Job') {
         parameters {
      	extendedChoiceParameterDefinition {
           name('Deployment_Group' )

@@ -1,8 +1,8 @@
-nestedView('Ansible-Jobs') {
+nestedView('Projection') {
     views {
       listView('{{LABEL}}') {
            jobs {
-                names('ADD-Deploy-Tomcat-dsl', 'ADD-Deploy-Nginx-dsl', 'ADD-Deploy-Mysql-dsl', 'ADD-Deploy-Zabbix-dsl')
+                names('Configure-Tomcat-Job', 'Configure-Nginx-Job', 'Configure-Mysql-Job', 'Configure-Zabbix-Job')
             }
             columns {
                 status()

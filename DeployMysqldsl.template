@@ -1,4 +1,4 @@
-job('ADD-Deploy-Mysql-dsl') {
+job('Configure-Mysql-Job') {
         parameters {
      	extendedChoiceParameterDefinition {
           name('Deployment_Group' )

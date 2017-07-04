@@ -1,4 +1,4 @@
-	job('ADD-Deploy-Tomcat-dsl') {
+job('Configure-Tomcat-Job') {
         parameters {
      	extendedChoiceParameterDefinition {
           name('Deployment_Group' )
