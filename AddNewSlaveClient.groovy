@@ -4,7 +4,7 @@ job('ADD-new-slave-dsl') {
         stringParam('REMOTE_MACHINE_IP')
         stringParam('CRED_ID')
         stringParam('jenkins_username')
-        stringParam('jenkins_password', 'jenkins_password')
+        password('jenkins_password', 'jenkins_password')
         stringParam('remote_machine_username')
         stringParam('LABEL')
     }
