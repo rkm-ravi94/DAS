@@ -1,12 +1,12 @@
 job('ADD-new-slave-dsl') {
     parameters {
         stringParam('JENKINS_URL', 'http://192.168.33.99:8080')
-        stringParam('REMOTE_MACHINE_IP')
-        stringParam('CRED_ID')
-        stringParam('jenkins_username')
-        password('jenkins_password', 'jenkins_password')
-        stringParam('remote_machine_username')
-        stringParam('LABEL')
+        stringParam('REMOTE_MACHINE_IP', '192.168.33.99')
+        stringParam('CRED_ID', '7a8b1045-cc12-4f79-a966-f047789bcf18')
+        stringParam('jenkins_username' 'alok')
+        password('jenkins_password', 'alok')
+        stringParam('remote_machine_username', 'root')
+        stringParam('LABEL', '')
     }
   
   steps {
