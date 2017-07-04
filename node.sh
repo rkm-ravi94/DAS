@@ -14,8 +14,8 @@ jenkins_password=$5
 remote_machine_username=$6
 LABELS=$7
 
-scp -o StrictHostKeyChecking=no /var/lib/jenkins/jdk-8u131-linux-x64.rpm ${remote_machine_username}@${NODE_NAME}:${NODE_SLAVE_HOME}/.
 ssh -o StrictHostKeyChecking=no ${remote_machine_username}@${NODE_NAME} "mkdir /home/jenkins"
+scp -o StrictHostKeyChecking=no /var/lib/jenkins/jdk-8u131-linux-x64.rpm ${remote_machine_username}@${NODE_NAME}:${NODE_SLAVE_HOME}/.
 ssh -o StrictHostKeyChecking=no ${remote_machine_username}@${NODE_NAME} "sudo yum install epel-release"
 ssh -o StrictHostKeyChecking=no ${remote_machine_username}@${NODE_NAME} "sudo yum install ansible"
 
