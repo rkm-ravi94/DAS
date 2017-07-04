@@ -2,7 +2,7 @@ nestedView('Ansible-Jobs') {
     views {
       listView('{{LABEL}}') {
            jobs {
-                names('ADD-Deploy-Tomcat-dsl', 'ADD-Deploy-Nginx-dsl', 'ADD-Deploy-Mysql-dsl')
+                names('ADD-Deploy-Tomcat-dsl', 'ADD-Deploy-Nginx-dsl', 'ADD-Deploy-Mysql-dsl', 'ADD-Deploy-Zabbix-dsl')
             }
             columns {
                 status()
