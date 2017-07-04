@@ -1,4 +1,4 @@
-job('Configure-Mysql-Job') {
+job('Configure-{{LABEL}}-Mysql-Job') {
         parameters {
      	extendedChoiceParameterDefinition {
           name('Deployment_Group' )
