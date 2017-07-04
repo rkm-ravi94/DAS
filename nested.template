@@ -1,4 +1,4 @@
-nestedView('Projection') {
+nestedView('{{LABEL}}-jobs') {
     views {
       listView('{{LABEL}}') {
            jobs {
