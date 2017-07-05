@@ -24,7 +24,9 @@ job('Add-Node') {
 		'sed -i "s/{{LABEL}}/${LABEL}/g" Deployzabbixdsl.groovy\n' +
 		'sed -i "s/{{LABEL}}/${LABEL}/g" nested.groovy\n' + 
 		'cp Inventory_File ${JENKINS_HOME}/inventory/hosts\n' + 
-		'cat ${JENKINS_HOME}/inventory/hosts  | grep "\\[" | sed "s/.//;s/.$//" | paste -s -d "," > ${JENKINS_HOME}/inventory.Properties\n'
+		'keyValue=cat ${JENKINS_HOME}/inventory/hosts  | grep "\\[" | sed "s/.//;s/.$//" | paste -s -d ","\n' +
+		'key=${keyValue} > ${JENKINS_HOME}/inventory.Properties\n'
+		
         )
     }
   
