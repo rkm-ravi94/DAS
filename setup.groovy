@@ -1,4 +1,4 @@
-listView("SysTem-Job") {
+listView("System-Job") {
     jobs {
         names('Add-Node', 'Delete-Node', 'Create-Jenkins-Properties-File')
     }

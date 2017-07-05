@@ -1,4 +1,4 @@
-job('Configure-{{LABEL}}-Zabbix-Job') {
+job('{{LABEL}}-Setup-Zabbix-Job') {
         parameters {
      	extendedChoiceParameterDefinition {
           name('Deployment_Group' )

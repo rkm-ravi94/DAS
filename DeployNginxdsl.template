@@ -1,4 +1,4 @@
-job('Configure-{{LABEL}}-Nginx-Job') {
+job('{{LABEL}}-Setup-Nginx-Job') {
         parameters {
      	extendedChoiceParameterDefinition {
           name('Deployment_Group' )

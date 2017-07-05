@@ -1,8 +1,8 @@
 nestedView('{{LABEL}}-jobs') {
     views {
-      listView('{{LABEL}}') {
+      listView('Manger') {
            jobs {
-                names('Configure-{{LABEL}}-Tomcat-Job', 'Configure-{{LABEL}}-Nginx-Job', 'Configure-{{LABEL}}-Mysql-Job', 'Configure-{{LABEL}}-Zabbix-Job')
+                names('{{LABEL}}-Setup-Tomcat-Job', '{{LABEL}}-Setup-Nginx-Job', '{{LABEL}}-Setup-Mysql-Job', '{{LABEL}}-Setup-Zabbix-Job')
             }
             columns {
                 status()
