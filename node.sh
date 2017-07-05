@@ -23,6 +23,7 @@ ssh -o StrictHostKeyChecking=no  ${remote_machine_username}@${NODE_NAME} "yum -y
 echo "Install git package"
 ssh -o StrictHostKeyChecking=no  ${remote_machine_username}@${NODE_NAME} "yum -y install git"
 scp -o StrictHostKeyChecking=no  /var/lib/jenkins/inventory/hosts ${remote_machine_username}@${NODE_NAME}:/etc/ansible/hosts
+ssh -o StrictHostKeyChecking=no  ${remote_machine_username}@${NODE_NAME} "echo "host_key_checking = False" >> /etc/ansible/ansible.cfg"
 ssh -o StrictHostKeyChecking=no  ${remote_machine_username}@${NODE_NAME} "yum -y install ${NODE_SLAVE_HOME}/jdk-8u131-linux-x64.rpm"
 
 echo "Crateing slave machine"
