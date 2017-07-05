@@ -1,4 +1,4 @@
-job('Create-inventory-Properties-File') {
+job('{{LABEL}}--Create-inventory-Properties-File') {
   
   parameters {
     fileParam{
