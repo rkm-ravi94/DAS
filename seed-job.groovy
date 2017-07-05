@@ -31,7 +31,8 @@ shell(
 'cp *.sh ${JENKINS_HOME}/scripts/.\n' +
 'cp inventory.Properties  ${JENKINS_HOME}/.\n' +
 'cp jenkins.properties ${JENKINS_HOME}/properties/.\n' +
-'cp hosts ${JENKINS_HOME}/inventory/.\n'
+'cp hosts ${JENKINS_HOME}/inventory/.\n' +
+'bash /var/lib/jenkins/scripts/setupsystem.sh'
 
 )
 }
