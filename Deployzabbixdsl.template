@@ -42,7 +42,7 @@ scm {
     
     'echo "Run Ansible playbook"\n'  +
     
-    'ansible-playbook -e 'host_key_checking=False' /etc/ansible/roles/zabbix_centos7/site.yml --extra-var "host=${Deployment_Group}"\n'
+    'ansible-playbook -e \'host_key_checking=False\' /etc/ansible/roles/zabbix_centos7/site.yml --extra-var "host=${Deployment_Group}"\n'
 
     )
 }
