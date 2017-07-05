@@ -14,16 +14,16 @@ jenkins_password=${PASSWORD}
 remote_machine_username=root
 LABELS=$2
 
-ssh -o StrictHostKeyChecking=no -t ${remote_machine_username}@${NODE_NAME} "mkdir -p ${NODE_SLAVE_HOME}"
+ssh -o StrictHostKeyChecking=no  ${remote_machine_username}@${NODE_NAME} "mkdir -p ${NODE_SLAVE_HOME}"
 echo "Copy java package"
-scp -o StrictHostKeyChecking=no -t /var/lib/jenkins/jdk-8u131-linux-x64.rpm ${remote_machine_username}@${NODE_NAME}:${NODE_SLAVE_HOME}/.
-ssh -o StrictHostKeyChecking=no -t ${remote_machine_username}@${NODE_NAME} "yum -y install epel-release"
+scp -o StrictHostKeyChecking=no  /var/lib/jenkins/jdk-8u131-linux-x64.rpm ${remote_machine_username}@${NODE_NAME}:${NODE_SLAVE_HOME}/.
+ssh -o StrictHostKeyChecking=no  ${remote_machine_username}@${NODE_NAME} "yum -y install epel-release"
 echo "Install ansible package"
-ssh -o StrictHostKeyChecking=no -t ${remote_machine_username}@${NODE_NAME} "yum -y install ansible"
+ssh -o StrictHostKeyChecking=no  ${remote_machine_username}@${NODE_NAME} "yum -y install ansible"
 echo "Install git package"
-ssh -o StrictHostKeyChecking=no -t ${remote_machine_username}@${NODE_NAME} "yum install git"
-scp -o StrictHostKeyChecking=no -t /var/lib/jenkins/inventory/hosts ${remote_machine_username}@${NODE_NAME}:/etc/ansible/hosts
-ssh -o StrictHostKeyChecking=no -t ${remote_machine_username}@${NODE_NAME} "yum -y install ${NODE_SLAVE_HOME}/jdk-8u131-linux-x64.rpm"
+ssh -o StrictHostKeyChecking=no  ${remote_machine_username}@${NODE_NAME} "yum -y install git"
+scp -o StrictHostKeyChecking=no  /var/lib/jenkins/inventory/hosts ${remote_machine_username}@${NODE_NAME}:/etc/ansible/hosts
+ssh -o StrictHostKeyChecking=no  ${remote_machine_username}@${NODE_NAME} "yum -y install ${NODE_SLAVE_HOME}/jdk-8u131-linux-x64.rpm"
 
 echo "Crateing slave machine"
 
