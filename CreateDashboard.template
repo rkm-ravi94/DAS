@@ -4,4 +4,3 @@ buildMonitorView('{{LABEL}}-jobs')
         names("BuildMonitor")
         regex(/{{LABEL}}.+/)
    }  
-  }
