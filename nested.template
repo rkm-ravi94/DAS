@@ -12,7 +12,7 @@ nestedView('{{LABEL}}-jobs') {
                 lastFailure()
             }
         }
-    }
+    
 
 buildMonitorView('BuildMonitor') {
   description('All jobs for {{LABEL}}')
@@ -21,6 +21,6 @@ buildMonitorView('BuildMonitor') {
         regex(/{{LABEL}}.+/)
    }  
 }
-
+}
 
 }
