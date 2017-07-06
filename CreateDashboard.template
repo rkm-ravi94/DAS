@@ -1,6 +1,7 @@
-buildMonitorView('{{LABEL}}-jobs')
-  description('All jobs for techprimo')
+buildMonitorView('{{LABEL}}-jobs') {
+  description('All jobs for {{LABEL}}')
     jobs {
         names("BuildMonitor")
         regex(/{{LABEL}}.+/)
    }  
+}
