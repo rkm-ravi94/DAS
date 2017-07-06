@@ -13,4 +13,14 @@ nestedView('{{LABEL}}-jobs') {
             }
         }
     }
+
+buildMonitorView('{BuildMonitor') {
+  description('All jobs for {{LABEL}}')
+    jobs {
+        names('{{LABEL}}-jobs')
+        regex(/{{LABEL}}.+/)
+   }  
+}
+
+
 }
