@@ -1,6 +1,6 @@
 nestedView('{{LABEL}}-jobs') {
     views {
-      listView('Manger') {
+      listView('Software-Manager') {
            jobs {
                 names('{{LABEL}}-Setup-Tomcat-Job', '{{LABEL}}-Setup-Nginx-Job', '{{LABEL}}-Setup-Mysql-Job', '{{LABEL}}-Setup-Zabbix-Job')
             }

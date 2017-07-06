@@ -42,7 +42,8 @@ scm {
     'echo "Clone java role"\n'  +
     'git clone https://github.com/opstree-ansible/java.git /etc/ansible/roles/java\n'  +
     'echo "Run Ansible playbook"\n'  +
-    'ansible-playbook /etc/ansible/roles/tomcat7/site.yml --extra-var "host=${Deployment_Group}"\n'
+    'export ANSIBLE_HOST_KEY_CHECKING=False\n' +
+    'ansible-playbook  /etc/ansible/roles/tomcat7/site.yml --extra-var "host=${Deployment_Group}"\n'
 
     )
 }

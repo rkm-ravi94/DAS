@@ -41,8 +41,9 @@ scm {
     '#!/bin/bash\n'  +
     
     'echo "Run Ansible playbook"\n'  +
-    
-    'ansible-playbook /etc/ansible/roles/mysql-server/site.yml --extra-var "host=${Deployment_Group}"\n'
+
+    'export ANSIBLE_HOST_KEY_CHECKING=False\n' +    
+    'ansible-playbook  /etc/ansible/roles/mysql-server/site.yml --extra-var "host=${Deployment_Group}"\n'
 
     )
 }
