@@ -1,0 +1,46 @@
+job('Tomcat-Deployment') {
+parameters {
+extendedChoiceParameterDefinition {
+  name('Deployment_Group' )
+  type('Single Select' )
+  propertyFile('/var/lib/jenkins/inventory.Properties')
+  propertyKey('key')
+  defaultValue('targets')
+  defaultPropertyFile('')
+  value('')
+  defaultPropertyKey('') 
+  quoteValue(false)
+  visibleItemCount(5) 
+  description('')
+  multiSelectDelimiter('')
+  bindFieldName('')
+  svnPath(false)
+  svnUrl('')
+  svnUserName('')
+  svnPassword('')
+  projectName('')
+  roleBasedFilter(false)
+}
+
+stringParam('warLocalPath')
+stringParam('destination')
+
+
+}
+
+
+label('{{LABEL}}')
+
+      
+   steps {
+        shell(
+          '#!/bin/bash\n'  +
+    
+        'echo "Run Ansible playbook"\n'  +
+        'export ANSIBLE_HOST_KEY_CHECKING=False\n' +
+
+        'ssh ${Deployment_Group}  \"export warLocalPath=$warLocalPath; export destination=$destination;\" \'ansible-playbook -i /etc/ansible/roles/tomcat-deploy/hosts /etc/ansible/roles/tomcat-deploy/main.yml --extra-vars \"warLocalPath=${warLocalPath} destination=${destination}\"\''
+        )
+
+    }
+}
