@@ -1,0 +1,58 @@
+job('Mysql-Replication') {
+parameters {
+extendedChoiceParameterDefinition {
+  name('Deployment_Group' )
+  type('Single Select' )
+  propertyFile('/var/lib/jenkins/inventory.Properties')
+  propertyKey('key')
+  defaultValue('targets')
+  defaultPropertyFile('')
+  value('')
+  defaultPropertyKey('') 
+  quoteValue(false)
+  visibleItemCount(5) 
+  description('')
+  multiSelectDelimiter('')
+  bindFieldName('')
+  svnPath(false)
+  svnUrl('')
+  svnUserName('')
+  svnPassword('')
+  projectName('')
+  roleBasedFilter(false)
+}
+
+stringParam('master_db_name')
+stringParam('user_name')
+stringParam('password')
+stringParam('master_ip')
+
+
+
+
+}
+
+
+label('{{LABEL}}')
+
+      
+    steps {
+        shell(
+
+        '#!/bin/bash\n'  +
+       
+           'echo "Run Ansible playbook"\n'  +
+           'export ANSIBLE_HOST_KEY_CHECKING=False\n' +
+
+        'ssh $Deployment_Group  \"export master_db_name=$master_db_name; export user_name=$user_name; export password=$password; export master_ip=$master_ip;\" \'ansible-playbook -i /etc/ansible/roles/mysql-master/hosts /etc/ansible/roles/mysql-masrer/site.yml --extra-vars \"master_db_name=${master_db_name} user_name=${user_name} password=${password} master_ip=${master_ip}\"\'\n' +
+
+       'ssh $Deployment_Group  bash /etc/ansible/roles/input.sh\n' +
+
+       'ssh $Deployment_Group  \"export master_db_name=$master_db_name; export user_name=$user_name; export password=$password; export master_ip=$master_ip;\" \'ansible-playbook -i /etc/ansible/roles/mysql-slave/hosts /etc/ansible/roles/mysql-slave/site.yml --extra-vars \"master_db_name=${master_db_name} user_name=${user_name} password=${password} master_ip=${master_ip}\"\'\n' +
+
+       'ssh $Deployment_Group rm /etc/ansible/roles/mysql-slave/tasks/main.yml\n' +
+       'ssh $Deployment_Group mv /etc/ansible/roles/mysql-slave/tasks/main.yml.bck /etc/ansible/roles/mysql-slave/tasks/main.yml\n' 
+       )
+    
+    }
+    }
