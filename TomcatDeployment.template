@@ -1,4 +1,4 @@
-job('Tomcat-Deployment') {
+job('{{LABEL}}-Tomcat-Deployment') {
 parameters {
 extendedChoiceParameterDefinition {
   name('Deployment_Group' )

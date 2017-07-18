@@ -1,4 +1,4 @@
-job('Mysql-Replication') {
+job('{{LABEL}}-Mysql-Replication') {
 parameters {
 extendedChoiceParameterDefinition {
   name('Deployment_Group' )

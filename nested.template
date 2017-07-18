@@ -2,7 +2,7 @@ nestedView('{{LABEL}}-jobs') {
     views {
       listView('Software-Manager') {
            jobs {
-                names('{{LABEL}}-Setup-Tomcat-Job', '{{LABEL}}-Setup-Nginx-Job', '{{LABEL}}-Setup-Mysql-Job', '{{LABEL}}-Setup-Zabbix-Job', '{{LABEL}}-Command-Executor')
+                names('{{LABEL}}-Setup-Tomcat-Job', '{{LABEL}}-Setup-Nginx-Job', '{{LABEL}}-Setup-Mysql-Job', '{{LABEL}}-Setup-Zabbix-Job', '{{LABEL}}-Command-Executor', '{{LABEL}}-Tomcat-Deployment', '{{LABEL}}-Mysql-Replication' )
             }
             columns {
                 status()
