@@ -27,7 +27,7 @@ scm {
      git {
         remote {
             
-            url('https://github.com/opstree-ansible/zabbix_centos7.git')
+            url('https://github.com/opstree-ansible/osm_zabbix.git')
         }
         branch('*/master')
         extensions {
