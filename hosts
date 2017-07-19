@@ -1,4 +1,6 @@
-[targets]
+[Opstree-Qa]
 192.168.0.44
-[alok]
+[Opstree-Dev]
+192.168.0.44
+[Opstree-Prod]
 192.168.0.44
