@@ -21,6 +21,7 @@ job('{{LABEL}}-Setup-Zabbix-Agent-Job') {
           projectName('')
           roleBasedFilter(false)
         }
+	stringParam('Zabbix_Server_Ip', '')
         }
     label('{{LABEL}}')
 scm {
@@ -43,7 +44,7 @@ scm {
     'echo "Run Ansible playbook"\n'  +
     'export ANSIBLE_HOST_KEY_CHECKING=False\n' +
     
-    'ansible-playbook -e \'host_key_checking=False\' /etc/ansible/roles/osm_zabbix/agent.yml --extra-var "host=${Deployment_Group}"\n'
+    'ansible-playbook -e \'host_key_checking=False\' /etc/ansible/roles/osm_zabbix/agent.yml --extra-var "host=${Deployment_Group} zabbix_server_ip=${Zabbix_Server_Ip}"\n'
 
     )
 }
