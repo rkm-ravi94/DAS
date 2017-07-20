@@ -34,7 +34,7 @@ job('Add-Node') {
 		'sed -i "s/{{LABEL}}/${LABEL}/g" AnsibleCommand.groovy\n' +		
 		'cp Inventory_File ${JENKINS_HOME}/inventory/hosts\n' + 
 		'keyValue=`cat ${JENKINS_HOME}/inventory/hosts  | grep "\\[" | sed "s/.//;s/.$//"| cut -d "]" -f1 | paste -s -d ","`\n' +
-		'echo "key=${keyValue}" > ${JENKINS_HOME}/inventory.Properties\n' +
+		'echo "key=${keyValue}" > ${JENKINS_HOME}/inventory.Properties' 
 		
 		
         )
