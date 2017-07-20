@@ -36,7 +36,6 @@ job('Add-Node') {
 		'keyValue=`cat ${JENKINS_HOME}/inventory/hosts  | grep "\\[" | sed "s/.//;s/.$//"| cut -d "]" -f1 | paste -s -d ","`\n' +
 		'echo "key=${keyValue}" > ${JENKINS_HOME}/inventory.Properties\n' +
 		
-#		'scp -o StrictHostKeyChecking=no ~/.ssh/id_rsa root@${REMOTE_MACHINE_IP}:~/.ssh/id_rsa'
 		
         )
     }
