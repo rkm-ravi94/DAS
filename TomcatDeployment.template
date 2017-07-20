@@ -22,8 +22,8 @@ extendedChoiceParameterDefinition {
   roleBasedFilter(false)
 }
 
-stringParam('warLocalPath')
-stringParam('destination')
+stringParam('warLocalPath', '', '')
+stringParam('destination', '', '')
 
 
 }

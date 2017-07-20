@@ -22,10 +22,10 @@ extendedChoiceParameterDefinition {
   roleBasedFilter(false)
 }
 
-stringParam('master_db_name')
-stringParam('user_name')
-stringParam('password')
-stringParam('master_ip')
+stringParam('master_db_name', '', '' )
+stringParam('user_name', '', '')
+stringParam('password', '', '')
+stringParam('master_ip', '', '',)
 
 
 

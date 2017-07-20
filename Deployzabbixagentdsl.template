@@ -21,7 +21,7 @@ job('{{LABEL}}-Setup-Zabbix-Agent-Job') {
           projectName('')
           roleBasedFilter(false)
         }
-	stringParam('Zabbix_Server_Ip', '')
+	stringParam('Zabbix_Server_Ip', '', '')
         }
     label('{{LABEL}}')
 scm {
