@@ -1,6 +1,6 @@
 job('Delete-Node') {
     parameters {
-        stringParam('NODE_NAME', '')
+        stringParam('NODE_NAME', '', '')
     }
   label('master')
   steps {
