@@ -1,7 +1,7 @@
 job('Add-Node') {
     parameters {
-        stringParam('REMOTE_MACHINE_IP', '')
-        stringParam('LABEL', '')
+        stringParam('REMOTE_MACHINE_IP', '', ' ')
+        stringParam('LABEL', '' ,'Add client name')
 	fileParam{
      		 name('Inventory_File')
       		description ('Inventory Host File')
