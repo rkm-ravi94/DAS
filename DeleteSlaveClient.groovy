@@ -16,8 +16,10 @@ job('Delete-Node') {
 		'java -jar ${JENKINS_CLI_JAR} -s ${JENKINS_URL} delete-job ${LABEL}-Setup-Zabbix-Job --username "${USERNAME}" --password "${PASSWORD}"\n' +
 		'java -jar ${JENKINS_CLI_JAR} -s ${JENKINS_URL} delete-job ${LABEL}-Command-Executor --username "${USERNAME}" --password "${PASSWORD}"\n' +
 		'java -jar ${JENKINS_CLI_JAR} -s ${JENKINS_URL} delete-job ${LABEL}-Mysql-Replication --username "${USERNAME}" --password "${PASSWORD}"\n' +
+		'java -jar ${JENKINS_CLI_JAR} -s ${JENKINS_URL} delete-job ${LABEL}--Setup-Zabbix-Agent-Job --username "${USERNAME}" --password "${PASSWORD}"\n' +
 		'java -jar ${JENKINS_CLI_JAR} -s ${JENKINS_URL} delete-job ${LABEL}-Tomcat-Deployment --username "${USERNAME}" --password "${PASSWORD}"\n' +
 		'java -jar ${JENKINS_CLI_JAR} -s ${JENKINS_URL} delete-view ${LABEL}-jobs --username "${USERNAME}" --password "${PASSWORD}"\n'
+		
 
         )
     }

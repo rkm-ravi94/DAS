@@ -22,15 +22,15 @@ job('Add-Node') {
 		'cp ${JENKINS_HOME}/template/TomcatDeployment.template ${WORKSPACE}/TomcatDeployment.groovy\n' +
 		'cp ${JENKINS_HOME}/template/MysqlReplication.template ${WORKSPACE}/MysqlReplication.groovy\n' +
 		'cp ${JENKINS_HOME}/template/AnsibleCommand.template ${WORKSPACE}/AnsibleCommand.groovy\n' +
+		'cp ${JENKINS_HOME}/template/Deployzabbixagentdsl.template ${WORKSPACE}/Deployzabbixagentdsl.groovy\n' +
 		'sed -i "s/{{LABEL}}/${LABEL}/g" DeployNginxdsl.groovy\n' +
 		'sed -i "s/{{LABEL}}/${LABEL}/g" DeployTomcatdsl.groovy\n' +
 		'sed -i "s/{{LABEL}}/${LABEL}/g" DeployMysqldsl.groovy\n' +
 		'sed -i "s/{{LABEL}}/${LABEL}/g" Deployzabbixdsl.groovy\n' +
 		'sed -i "s/{{LABEL}}/${LABEL}/g" nested.groovy\n' +
 		'sed -i "s/{{LABEL}}/${LABEL}/g" TomcatDeployment.groovy\n' + 
-
+		'sed -i "s/{{LABEL}}/${LABEL}/g" Deployzabbixagentdsl.groovy\n' +
 		'sed -i "s/{{LABEL}}/${LABEL}/g" MysqlReplication.groovy\n' +
-
 		'sed -i "s/{{LABEL}}/${LABEL}/g" AnsibleCommand.groovy\n' +		
 		'cp Inventory_File ${JENKINS_HOME}/inventory/hosts\n' + 
 		'keyValue=`cat ${JENKINS_HOME}/inventory/hosts  | grep "\\[" | sed "s/.//;s/.$//"| cut -d "]" -f1 | paste -s -d ","`\n' +
