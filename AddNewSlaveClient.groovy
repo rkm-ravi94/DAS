@@ -7,6 +7,7 @@ job('Add-Node') {
       		description ('Inventory Host File')
     }
     }
+	 label('master')
   
   steps {
         shell(

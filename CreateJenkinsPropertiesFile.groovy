@@ -5,6 +5,7 @@ job('Create-Jenkins-Properties-File') {
 	stringParam('PASSWORD', '', '')
 	stringParam('CRED_ID', '', '')
     }
+	label('master')
   
   steps {
         shell(
