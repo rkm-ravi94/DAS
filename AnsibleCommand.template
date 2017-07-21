@@ -21,7 +21,7 @@ job('{{LABEL}}-Command-Executor') {
           projectName('')
           roleBasedFilter(false)
         }
-          stringParam('Command')
+          stringParam('Command', '', '')
 }
   
    label('{{LABEL}}')
