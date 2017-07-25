@@ -27,7 +27,7 @@ scm {
      git {
         remote {
             
-            url('https://github.com/opstree-ansible/tomcat7.git')
+            url('https://github.com/opstree-ansible/OSM_Tomcat.git')
         }
         branch('*/master')
         extensions {
