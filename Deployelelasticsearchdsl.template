@@ -28,7 +28,7 @@ scm {
      git {
         remote {
             
-            url('https://github.com/opstree-ansible/OSM_ElasticSearch.git')
+            url('https://github.com/opstree-ansible/osm_elasticSearch.git')
         }
         branch('*/master')
         extensions {

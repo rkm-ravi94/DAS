@@ -27,7 +27,7 @@ scm {
      git {
         remote {
             
-            url('https://github.com/opstree-ansible/OSM_Nginx.git')
+            url('https://github.com/opstree-ansible/osm_nginx.git')
         }
         branch('*/master')
         extensions {

@@ -27,11 +27,11 @@ scm {
      git {
         remote {
             
-            url('https://github.com/opstree-ansible/OSM_Tomcat.git')
+            url('https://github.com/opstree-ansible/osm_tomcat.git')
         }
         branch('*/master')
         extensions {
-            relativeTargetDirectory("""/etc/ansible/roles/tomcat7/""")
+            relativeTargetDirectory("""/etc/ansible/roles/tomcat/""")
         }
     }
 }
@@ -43,7 +43,7 @@ scm {
     'git clone https://github.com/opstree-ansible/java.git /etc/ansible/roles/java\n'  +
     'echo "Run Ansible playbook"\n'  +
     'export ANSIBLE_HOST_KEY_CHECKING=False\n' +
-    'ansible-playbook  /etc/ansible/roles/tomcat7/site.yml --extra-var "host=${Deployment_Group}"\n'
+    'ansible-playbook  /etc/ansible/roles/tomcat/site.yml --extra-var "host=${Deployment_Group}"\n'
 
     )
 }
