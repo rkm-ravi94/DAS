@@ -22,7 +22,7 @@ job('{{LABEL}}-Setup-Kibana-Job') {
           roleBasedFilter(false)
         }
     stringParam('Kibana_server_ip')
-    stringParam('Elasticsearch_url')
+    stringParam('Elasticsearch_ip')
 
         }
     label('{{LABEL}}')
@@ -46,7 +46,7 @@ scm {
     'echo "Run Ansible playbook"\n'  +
 
      'export ANSIBLE_HOST_KEY_CHECKING=False\n' +    
-    'ansible-playbook  /etc/ansible/roles/kibana/site.yml --extra-var "host=${Deployment_Group} Elasticsearch_url=${Elasticsearch_url} Kibana_server_ip=${Kibana_server_ip}"\n'
+    'ansible-playbook  /etc/ansible/roles/kibana/site.yml --extra-var "host=${Deployment_Group} Elasticsearch_ip=${Elasticsearch_ip} Kibana_server_ip=${Kibana_server_ip}"\n'
 
     )
 }
