@@ -26,6 +26,8 @@ job('Add-Node') {
 		'cp ${JENKINS_HOME}/template/Deployzabbixagentdsl.template ${WORKSPACE}/Deployzabbixagentdsl.groovy\n' +
 		'cp ${JENKINS_HOME}/template/DeployKibanadsl.template ${WORKSPACE}/DeployKibanadsl.groovy\n' +
 		'cp ${JENKINS_HOME}/template/Deployelelasticsearchdsl.template ${WORKSPACE}/Deployelelasticsearchdsl.groovy\n' +
+                'cp ${JENKINS_HOME}/template/DeployeLogstashdsl.template ${WORKSPACE}/DeployeLogstashdsl.groovy\n' +
+                'cp ${JENKINS_HOME}/template/DeployePostgresqldsl.template ${WORKSPACE}/DeployePostgresqldsl.groovy\n' +
 		'sed -i "s/{{LABEL}}/${LABEL}/g" DeployNginxdsl.groovy\n' +
 		'sed -i "s/{{LABEL}}/${LABEL}/g" DeployTomcatdsl.groovy\n' +
 		'sed -i "s/{{LABEL}}/${LABEL}/g" DeployMysqldsl.groovy\n' +
@@ -37,6 +39,8 @@ job('Add-Node') {
 		'sed -i "s/{{LABEL}}/${LABEL}/g" AnsibleCommand.groovy\n' +
 		'sed -i "s/{{LABEL}}/${LABEL}/g" DeployKibanadsl.groovy\n' +
 		'sed -i "s/{{LABEL}}/${LABEL}/g" Deployelelasticsearchdsl.groovy\n' +
+                'sed -i "s/{{LABEL}}/${LABEL}/g" DeployeLogstashdsl.groovy\n' +
+                'sed -i "s/{{LABEL}}/${LABEL}/g" DeployePostgresqldsl.groovy\n' +
 		'cp Inventory_File ${JENKINS_HOME}/inventory/hosts\n' + 
 		'keyValue=`cat ${JENKINS_HOME}/inventory/hosts  | grep "\\[" | sed "s/.//;s/.$//"| cut -d "]" -f1 | paste -s -d ","`\n' +
 		'echo "key=${keyValue}" > ${JENKINS_HOME}/inventory.Properties' 
