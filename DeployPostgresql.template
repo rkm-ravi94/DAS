@@ -1,0 +1,51 @@
+job('{{LABEL}}-Setup-Postgresql-Job') {
+        parameters {
+     	extendedChoiceParameterDefinition {
+          name('Deployment_Group' )
+          type('Single Select' )
+          propertyFile('/var/lib/jenkins/inventory.Properties')
+          propertyKey('key')
+          defaultValue('targets')
+          defaultPropertyFile('')
+          value('')
+          defaultPropertyKey('') 
+          quoteValue(false)
+          visibleItemCount(5) 
+       	  description('')
+          multiSelectDelimiter('')
+          bindFieldName('')
+          svnPath(false)
+          svnUrl('')
+          svnUserName('')
+          svnPassword('')
+          projectName('')
+          roleBasedFilter(false)
+        }
+
+        }
+    label('{{LABEL}}')
+scm {
+     git {
+        remote {
+            
+            url('https://github.com/opstree-ansible/osm_postgresql.git')
+        }
+        branch('*/master')
+        extensions {
+            relativeTargetDirectory("""/etc/ansible/roles/postgresql/""")
+        }
+    }
+}
+  steps {
+    shell(
+
+    '#!/bin/bash\n'  +
+    
+    'echo "Run Ansible playbook"\n'  +
+
+     'export ANSIBLE_HOST_KEY_CHECKING=False\n' +    
+    'ansible-playbook  /etc/ansible/roles/kibana/site.yml --extra-var "host=${Deployment_Group}"\n'
+
+    )
+}
+}
